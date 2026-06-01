@@ -4,5 +4,9 @@
 # macOS
 .DS_Store
 
-# Node (if applicable in future)
+# Node
 node_modules/
+.next/
+
+# API Keys
+.env.local
