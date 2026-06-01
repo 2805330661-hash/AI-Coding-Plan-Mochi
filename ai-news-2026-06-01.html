@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 新闻周报 · 2026年5月25日—6月1日</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #5c5c5c;
+    --accent: #c45a3c;
+    --accent-cool: #3b6e8e;
+    --border: #e8e4dd;
+    --tag-bg: #f3efe8;
+    --tag-text: #8b7355;
+    --divider: #d4cfc7;
+    --shadow: 0 1px 3px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .header {
+    padding: 60px 24px 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--divider);
+  }
+  .header .kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    color: var(--text);
+  }
+  .header .meta {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .header .meta span { margin: 0 8px; }
+
+  /* ── Container ── */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* ── Section ── */
+  .section {
+    margin-bottom: 48px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px; height: 28px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+  .section-title .num.cool {
+    background: var(--accent-cool);
+  }
+
+  /* ── Conclusion card ── */
+  .conclusion-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .conclusion-list li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    font-size: 15px;
+    line-height: 1.65;
+    transition: box-shadow .15s;
+  }
+  .conclusion-list li:hover { box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 6px;
+    letter-spacing: 0.3px;
+  }
+  .badge-high  { background: #e8f5e9; color: #2e7d32; }
+  .badge-mid   { background: #fff3e0; color: #e65100; }
+
+  /* ── Source table ── */
+  .source-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .source-table th {
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 12px 8px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .source-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .source-table tr:last-child td { border-bottom: none; }
+  .source-table a {
+    color: var(--accent-cool);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .source-table a:hover { text-decoration: underline; }
+  .source-table .idx {
+    color: var(--text-muted);
+    font-size: 12px;
+    width: 28px;
+  }
+
+  /* ── Uncertain / Follow-up ── */
+  .bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bullet-list li {
+    padding-left: 24px;
+    position: relative;
+    font-size: 14.5px;
+    color: #3a3a3a;
+  }
+  .bullet-list li::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 10px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* ── Outline cards ── */
+  .outline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .outline-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+  }
+  .outline-card .chap {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .outline-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .outline-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--divider);
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .header { padding: 40px 16px 32px; }
+    .container { padding: 32px 16px 56px; }
+    .source-table { font-size: 13px; }
+    .source-table th, .source-table td { padding: 8px 6px; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: #fff; }
+    .header { padding: 30px 0 20px; border: none; }
+    .container { padding: 0; }
+    .conclusion-list li,
+    .outline-card { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="kicker">AI Intelligence Weekly</div>
+  <h1>2026 初夏 AI 变局<br>王座更替、芯片博弈与编码 Agent 大战</h1>
+  <div class="meta">
+    2026 年 5 月 25 日 — 6 月 1 日 <span>·</span> AI Coding Plan 出品
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ═══ 1. CORE CONCLUSIONS ═══ -->
+  <section class="section">
+    <h2 class="section-title"><span class="num">1</span> 核心结论</h2>
+    <ol class="conclusion-list">
+      <li>
+        <strong>Anthropic 登顶全球估值最高 AI 公司</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        完成 H 轮 $650 亿融资，估值 $9,650 亿逼近万亿美元，超越 OpenAI 的 $8,520 亿。企业市场份额（Ramp 数据）以 34.4% 对 32.3% 首次反超。
+      </li>
+      <li>
+        <strong>OpenAI 全面推送 GPT-5.5，同步发布网络安全版</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        推理能力提升 12 个百分点，幻觉降低 52.5%。GPT-5.5-Cyber 面向关键基础设施防御。同时宣布 GPT-4.5 将于 6 月 27 日退役。
+      </li>
+      <li>
+        <strong>美国 5 月 31 日收紧对华 AI 芯片管制</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        商务部封堵漏洞：中国企业在海外子公司亦须获许可才能获取英伟达 Blackwell / Rubin 芯片。华为昇腾在国内形成替代生态。
+      </li>
+      <li>
+        <strong>xAI 发布 Grok Build 编码智能体</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        5 月 25 日推出早期测试版 AI 编码 CLI 工具，直接对标 Claude Code 与 OpenAI Codex。DeepSeek 组建团队打造竞品「Code Harness」。
+      </li>
+      <li>
+        <strong>微软拟自研编码模型，取消大量 Claude Code 许可</strong>
+        <span class="badge badge-mid">中等可信度</span><br>
+        将在 6 月 2–3 日 Build 大会公布自研 Copilot 模型，「Ask Copilot」替换 Windows 11 搜索，降低对 OpenAI 及 Anthropic 依赖。
+      </li>
+      <li>
+        <strong>CNN 起诉 Perplexity 侵权</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        5 月 28 日 CNN 指控 Perplexity 非法使用其内容；Perplexity 回应「事实不受版权保护」。AI 搜索与媒体的版权博弈升温。
+      </li>
+      <li>
+        <strong>三星向英伟达出货 12 层 HBM4E 样品</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        5 月 29 日股价应声上涨 10%。英伟达发布 RTX Spark AI PC 超级芯片，联想、戴尔、惠普今秋发货。
+      </li>
+      <li>
+        <strong>中国大模型行业进入「价值验证期」</strong>
+        <span class="badge badge-high">高可信度</span><br>
+        百度 AI 收入占核心收入首超 52%；阿里云 AI 连续十个季度三位数增长；MiniMax 提交 A 股上市辅导，智谱市值 7,111 亿港元。
+      </li>
+    </ol>
+  </section>
+
+  <!-- ═══ 2. SOURCES ═══ -->
+  <section class="section">
+    <h2 class="section-title"><span class="num cool">2</span> 关键证据与来源</h2>
+    <table class="source-table">
+      <thead><tr><th></th><th>结论</th><th>来源</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="idx">01</td>
+          <td>Anthropic H 轮 $650 亿 / $9,650 亿估值</td>
+          <td><a href="https://www.investors.com/news/technology/google-stock-anthropic-openai-ipo-valuation-revenue-recognition/" target="_blank">IBD ↗</a> · <a href="https://developer.aliyun.com/article/1738694" target="_blank">阿里云开发者 ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">02</td>
+          <td>GPT-5.5 推送 + Cyber 安全版</td>
+          <td><a href="https://www.kucoin.com/news/flash/openai-launches-gpt-5-5-cyber-for-cybersecurity-defense" target="_blank">KuCoin ↗</a> · <a href="https://g.pconline.com.cn/x/2162/21628691.html" target="_blank">太平洋电脑网 ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">03</td>
+          <td>美国商务部 5/31 封堵芯片漏洞</td>
+          <td><a href="https://indianexpress.com/article/technology/tech-news-technology/us-takes-step-to-halt-nvidia-ai-chip-shipments-to-chinese-firms-outside-china-10717865/" target="_blank">Indian Express ↗</a> · <a href="https://en.fnnews.com/news/202606010638054109" target="_blank">FNNews ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">04</td>
+          <td>xAI Grok Build · CNN 诉 Perplexity · 三星 HBM4E</td>
+          <td><a href="https://www.prismetric.com/weekly-ai-news-from-may-24-29-2026-grok-build-openai-cnn-perplexity-samsung-ai-chips/" target="_blank">Prismetric 周报 ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">05</td>
+          <td>微软自研 Copilot · 取消 Claude Code 许可</td>
+          <td><a href="https://www.prismetric.com/weekly-ai-news-from-may-24-29-2026-grok-build-openai-cnn-perplexity-samsung-ai-chips/" target="_blank">Prismetric ↗</a> · <a href="https://www.digitaltoday.co.kr/en/view/59637/apple-microsoft-ai-strategies-put-to-the-test-as-ai-costs-surge-row-brews" target="_blank">Digital Today ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">06</td>
+          <td>大模型「算账时代」/ 价值验证期</td>
+          <td><a href="http://www.jjckb.cn/20260529/489ee01c7a6340729541ca220655bff4/c.html" target="_blank">新华社 · 经济参考报 ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">07</td>
+          <td>Opus 4.8 vs GPT-5.5 vs Mythos 基准</td>
+          <td><a href="https://www.rdworldonline.com/how-opus-4-8-compares-to-claude-mythos-and-gpt-5-5/" target="_blank">R&D World ↗</a></td>
+        </tr>
+        <tr>
+          <td class="idx">08</td>
+          <td>美军与 OpenAI / Google / SpaceX 签订 AI 合同</td>
+          <td><a href="https://www.latestly.com/us/us-military-signs-ai-deals-with-openai-google-spacex-and-others-to-build-ai-first-fighting-force-amid-war-concerns-7453745.html" target="_blank">LatestLY ↗</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ═══ 3. UNCERTAIN POINTS ═══ -->
+  <section class="section">
+    <h2 class="section-title"><span class="num">3</span> 不确定点</h2>
+    <ul class="bullet-list">
+      <li><strong>微软自研编码模型细节未知</strong> — Build 大会（6/2–3）才会正式公布，目前多为知情人士透露</li>
+      <li><strong>AI 编码工具竞争格局不稳定</strong> — Grok Build 刚发布测试版，DeepSeek「Code Harness」还在组队阶段</li>
+      <li><strong>中美芯片博弈效果待验证</strong> — 禁令反而加速华为昇腾生态建设；英伟达 Q4 收入仍达 $681 亿（+73% YoY）</li>
+      <li><strong>OpenAI vs 苹果诉讼尚未正式立案</strong> — Apple WWDC（6/8–12）可能有更明确信息</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 4. FOLLOW-UP ═══ -->
+  <section class="section">
+    <h2 class="section-title"><span class="num cool">4</span> 值得继续跟进</h2>
+    <ul class="bullet-list">
+      <li><strong>6/2–3 · Microsoft Build</strong> — 自研编码模型 +「Ask Copilot」替换 Windows 搜索</li>
+      <li><strong>6/8–12 · Apple WWDC</strong> — iOS 27 第三方 AI 模型选择器与 Gemini 集成</li>
+      <li><strong>Anthropic Mythos 全面开放时间表</strong> — 预览版已引发国防安全争议</li>
+      <li><strong>CNN vs Perplexity 法律进展</strong> — 可能成为 AI 版权领域里程碑判例</li>
+      <li><strong>AI Chip 禁令后续</strong> — 国会立法与华为昇腾产能爬坡</li>
+    </ul>
+  </section>
+
+  <!-- ═══ 5. OUTLINE ═══ -->
+  <section class="section">
+    <h2 class="section-title"><span class="num">5</span> 报告 / PPT 结构建议</h2>
+    <div class="outline-grid">
+      <div class="outline-card">
+        <div class="chap">第一章</div>
+        <h4>权力更替：Anthropic 的反超之路</h4>
+        <p>估值、营收、市场份额三维对比；Opus 4.8 与 Mythos 技术路线；企业级 AI 商业模式为何胜出</p>
+      </div>
+      <div class="outline-card">
+        <div class="chap">第二章</div>
+        <h4>编码 Agent 三国杀</h4>
+        <p>Grok Build · Claude Code · Copilot · Code Harness — 四家产品定位与生态博弈</p>
+      </div>
+      <div class="outline-card">
+        <div class="chap">第三章</div>
+        <h4>芯片：看不见的战场</h4>
+        <p>美国 5/31 新禁令；华为昇腾替代；三星 HBM4E 突破；英伟达 RTX Spark 开辟 AI PC 新战线</p>
+      </div>
+      <div class="outline-card">
+        <div class="chap">第四章</div>
+        <h4>内容版权：AI 与媒体的法律战</h4>
+        <p>CNN 诉 Perplexity；出版商流量下降 33%；AI Overviews 点击率减半 — 谁拥有训练数据的权利？</p>
+      </div>
+      <div class="outline-card">
+        <div class="chap">第五章</div>
+        <h4>下周重点事件日历</h4>
+        <p>Build 大会 · WWDC · 美中芯片谈判 · Mythos 开放进展</p>
+      </div>
+    </div>
+  </section>
+
+  <p class="disclaimer">信息搜集自公开网络来源 · 时间范围 2026/05/25 – 2026/06/01 · 部分信息可能存在延迟</p>
+
+</div>
+</body>
+</html>
